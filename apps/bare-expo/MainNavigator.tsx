@@ -2,11 +2,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { LinkingOptions, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Linking from 'expo-linking';
-import React from 'react';
+import React, { lazy } from 'react';
 import { Platform } from 'react-native';
 import TestSuite from 'test-suite/AppNavigator';
-
 import Colors from './src/constants/Colors';
+
+const LazyComponent = lazy(() => import('./components/LazyLoadedComponent'));
 
 type NavigationRouteConfigMap = React.ReactElement;
 
@@ -117,5 +118,6 @@ export default () => (
       {Search && <Switch.Screen name="searchNavigator" component={Search} />}
       <Switch.Screen name="main" component={TabNavigator} />
     </Switch.Navigator>
+    <LazyComponent />
   </NavigationContainer>
 );

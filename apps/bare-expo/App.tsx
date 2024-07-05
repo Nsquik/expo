@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MainNavigator, { optionalRequire } from './MainNavigator';
+
 let Notifications;
 try {
   Notifications = require('expo-notifications');
